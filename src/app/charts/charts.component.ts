@@ -1,6 +1,8 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {DataService} from "../data.service";
 import {Chart} from 'chart.js';
+import {split} from "ts-node";
+import {forEach} from "@angular/router/src/utils/collection";
 
 @Component({
   selector: 'app-charts',
@@ -11,6 +13,7 @@ export class ChartsComponent implements OnInit {
 
   chart: Chart;
   id = 'header';
+  alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
   constructor(private _data: DataService) {
   }
@@ -50,13 +53,11 @@ export class ChartsComponent implements OnInit {
   }
 
   scroll(el) {
-    this.id = el.id;
     el.scrollIntoView({block: 'start', behavior: 'smooth'});
   }
 
   @HostListener("window:scroll", [])
   onScroll(): void {
-    let header = document.getElementById('header');
     let first = document.getElementById('first');
     let second = document.getElementById('second');
     let third = document.getElementById('third');
@@ -65,6 +66,10 @@ export class ChartsComponent implements OnInit {
     let firstBtn = document.getElementById('firstBtn');
     let secondBtn = document.getElementById('secondBtn');
     let thirdBtn = document.getElementById('thirdBtn');
+
+    let firstTitle = document.getElementById('firstTitle');
+    let secondTitle = document.getElementById('secondTitle');
+    let thirdTitle = document.getElementById('thirdTitle');
 
     if (window.scrollY + window.innerHeight >= third.offsetTop + window.innerHeight / 2) {
       headerBtn.classList.remove('active');
@@ -83,6 +88,8 @@ export class ChartsComponent implements OnInit {
       firstBtn.classList.add('active');
       secondBtn.classList.remove('active');
       thirdBtn.classList.remove('active');
+
+      this.animateTitle(firstTitle);
     }
     else {
       headerBtn.classList.add('active');
@@ -90,5 +97,19 @@ export class ChartsComponent implements OnInit {
       secondBtn.classList.remove('active');
       thirdBtn.classList.remove('active');
     }
+  }
+
+  animateTitle(el) {
+    let textContent = el.textContent;
+    let newText = '';
+
+    let arrayText = textContent.split('');
+
+    arrayText.forEach(function (value, index) {
+
+    });
+
+
+    el.textContent = newText;
   }
 }
