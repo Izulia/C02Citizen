@@ -1,10 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
 import {DataService} from "./data.service";
-import { ChartsComponent } from './charts/charts.component';
+import {ChartsComponent} from './charts/charts.component';
 
 @NgModule({
   declarations: [
@@ -18,4 +18,5 @@ import { ChartsComponent } from './charts/charts.component';
   providers: [DataService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
