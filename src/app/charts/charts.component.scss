@@ -1,0 +1,95 @@
+.header {
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  border-bottom: 1px solid rgba(0, 0, 0, .03);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .24), 0 0 2px rgba(0, 0, 0, .12);
+
+  background: url('../../assets/images/background_city.jpg') bottom center;
+  background-size: cover;
+
+  h1, h2, span {
+    margin: 0;
+
+    width: fit-content;
+
+    font-family: 'Lato', sans-serif;
+    color: white;
+    text-shadow: 3px 3px rgba(0, 0, 0, .5);
+  }
+
+  h1 {
+    font-size: calc(20px + 2vw);
+  }
+
+  span {
+    font-size: calc(10px + 0.7vw);
+
+    .madeBy {
+      font-size: calc(10px + 0.3vw);
+    }
+  }
+
+  .group {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+.btnBar {
+  position: fixed;
+  right: 15px;
+  top: 40%;
+
+  ul {
+    li {
+      list-style: none;
+
+      button {
+        border-radius: 50%;
+        width: 15px;
+        height: 15px;
+        background-color: rgba(255, 255, 255, 0.3);
+        border: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .active {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+    }
+  }
+}
+
+.firstPart, .secondPart, .thirdPart {
+  height: 100vh;
+  max-height: 100vh;
+
+  h2 {
+    margin: 0;
+  }
+
+  canvas {
+    max-height: 70%;
+  }
+}
+
+.firstPart {
+  background-color: rgba(255, 0, 0, 0.1);
+}
+
+.secondPart {
+  background-color: rgba(0, 255, 0, 0.1);
+}
+
+.thirdPart {
+  background-color: rgba(0, 0, 255, 0.1);
+}

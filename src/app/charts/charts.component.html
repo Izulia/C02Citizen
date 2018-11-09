@@ -1,7 +1,35 @@
-<div>
-  <h1>CHARTS</h1>
+<div #header id="header" class="header">
+  <h1>Projet Data science</h1>
+  <h1>C02Citizen</h1>
+  <span class="group"><span class="madeBy">made by </span>Pitaval / Bernou / Tamiazzo / Lever</span>
 </div>
 
-<div>
+<div class="btnBar">
+  <ul>
+    <li>
+      <button id="headerBtn" [ngClass]="{'active': id === 'header' }" (click)="scroll(header)"></button>
+    </li>
+    <li>
+      <button id="firstBtn" [ngClass]="{'active': id === 'first' }" (click)="scroll(first)"></button>
+    </li>
+    <li>
+      <button id="secondBtn" [ngClass]="{'active': id === 'second' }" (click)="scroll(second)"></button>
+    </li>
+    <li>
+      <button id="thirdBtn" [ngClass]="{'active': id === 'third' }" (click)="scroll(third)"></button>
+    </li>
+  </ul>
+</div>
+
+<div #first id="first" class="firstPart">
+  <h2>FIRST PART</h2>
   <canvas id="canvas">{{ chart }}</canvas>
+</div>
+
+<div #second id="second" class="secondPart">
+  <h2>SECOND PART</h2>
+</div>
+
+<div #third id="third" class="thirdPart">
+  <h2>THIRD PART</h2>
 </div>
