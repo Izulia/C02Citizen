@@ -51,6 +51,7 @@
       list-style: none;
 
       button {
+        cursor: pointer;
         border-radius: 50%;
         width: 15px;
         height: 15px;
@@ -78,14 +79,25 @@
     align-items: center;
     justify-content: center;
 
+    height: 10%;
+
     h2 {
       width: fit-content;
       margin: 0;
     }
   }
 
-  canvas {
-    max-height: 70%;
+  .canvasPart {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 90%;
+
+    canvas {
+      max-height: 90%;
+      max-width: 75%;
+    }
   }
 }
 

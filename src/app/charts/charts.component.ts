@@ -1,8 +1,9 @@
 import {Component, HostListener, OnInit} from '@angular/core';
-import {DataService} from "../data.service";
+import {DataService} from '../data.service';
 import {Chart} from 'chart.js';
-import {split} from "ts-node";
-import {forEach} from "@angular/router/src/utils/collection";
+import {split} from 'ts-node';
+import {forEach} from '@angular/router/src/utils/collection';
+import {DrawService} from '../draw.service';
 
 @Component({
   selector: 'app-charts',
@@ -11,53 +12,24 @@ import {forEach} from "@angular/router/src/utils/collection";
 })
 export class ChartsComponent implements OnInit {
 
-  chart: Chart;
+  firstCanvas: Chart;
+  secondCanvas: Chart;
   id = 'header';
-  alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-  constructor(private _data: DataService) {
+  constructor(private _data: DataService, private _draw: DrawService) {
   }
 
   ngOnInit() {
-    this.chart = new Chart('canvas', {
-      type: 'line',
-      data: {
-        labels: ['TEST', 'TEST 2'],
-        datasets: [
-          {
-            data: [510, 670, 950],
-            borderColor: "#3cba9f",
-            fill: false
-          },
-          {
-            data: [410, 570, 9000],
-            borderColor: "#ffcc00",
-            fill: false
-          },
-        ]
-      },
-      options: {
-        legend: {
-          display: false
-        },
-        scales: {
-          xAxes: [{
-            display: true
-          }],
-          yAxes: [{
-            display: true
-          }],
-        }
-      },
-    });
+    this.firstCanvas = this._draw.draw('firstCanvas', 'line', '');
+    this.secondCanvas = this._draw.draw('secondCanvas','pie', '');
   }
 
   scroll(el) {
     el.scrollIntoView({block: 'start', behavior: 'smooth'});
   }
 
-  @HostListener("window:scroll", [])
-  onScroll(): void {
+  @HostListener('window:scroll', [])
+  onScroll(event: Event): void {
     let first = document.getElementById('first');
     let second = document.getElementById('second');
     let third = document.getElementById('third');
@@ -88,8 +60,6 @@ export class ChartsComponent implements OnInit {
       firstBtn.classList.add('active');
       secondBtn.classList.remove('active');
       thirdBtn.classList.remove('active');
-
-      this.animateTitle(firstTitle);
     }
     else {
       headerBtn.classList.add('active');
@@ -97,19 +67,5 @@ export class ChartsComponent implements OnInit {
       secondBtn.classList.remove('active');
       thirdBtn.classList.remove('active');
     }
-  }
-
-  animateTitle(el) {
-    let textContent = el.textContent;
-    let newText = '';
-
-    let arrayText = textContent.split('');
-
-    arrayText.forEach(function (value, index) {
-
-    });
-
-
-    el.textContent = newText;
   }
 }
