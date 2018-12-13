@@ -4,6 +4,10 @@
   <span class="group"><span class="madeBy">made by </span>Pitaval / Bernou / Tamiazzo / Lever</span>
 </div>
 
+<div class="btnInfos">
+  <button (click)="showInfos()">Infos</button>
+</div>
+
 <div class="btnBar">
   <ul>
     <li>
@@ -18,16 +22,26 @@
     <li>
       <button id="thirdBtn" [ngClass]="{'active': id === 'third' }" (click)="scroll(third)"></button>
     </li>
+    <li>
+      <button id="fourthBtn" [ngClass]="{'active': id === 'fourth' }" (click)="scroll(fourth)"></button>
+    </li>
   </ul>
+</div>
+
+<div #infos id="infos" class="infos">
+  <h1>Infos</h1>
+  <p>De 2012 à 2015 inclus</p>
+  <p>59 marques</p>
+  <p>160826 modèles</p>
+</div>
+
+<div #blur id="blur" class="blur">
+
 </div>
 
 <div #first id="first" class="firstPart">
   <div class="titlePart">
-    <h2 id="firstTitle">FIRST PART</h2>
-  </div>
-  <div class="btnPart">
-    <button><span>btn1</span></button>
-    <button>btn1</button>
+    <h2 id="firstTitle">Max pollution (nox)</h2>
   </div>
   <div class="canvasPart">
     <canvas id="firstCanvas">{{ firstChart }}</canvas>
@@ -36,7 +50,7 @@
 
 <div #second id="second" class="secondPart">
   <div class="titlePart">
-    <h2>SECOND PART</h2>
+    <h2>Min pollution (nox)</h2>
   </div>
   <div class="canvasPart">
     <canvas id="secondCanvas">{{ secondChart }}</canvas>
@@ -45,6 +59,18 @@
 
 <div #third id="third" class="thirdPart">
   <div class="titlePart">
-    <h2>THIRD PART</h2>
+    <h2>Max pollution (co2)</h2>
+  </div>
+  <div class="canvasPart">
+    <canvas id="thirdCanvas">{{ thirdChart }}</canvas>
+  </div>
+</div>
+
+<div #fourth id="fourth" class="fourthPart">
+  <div class="titlePart">
+    <h2>Min pollution (c02)</h2>
+  </div>
+  <div class="canvasPart">
+    <canvas id="fourthCanvas">{{ fourthChart }}</canvas>
   </div>
 </div>

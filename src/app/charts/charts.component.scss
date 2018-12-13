@@ -9,7 +9,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, .03);
   box-shadow: 0 2px 2px rgba(0, 0, 0, .24), 0 0 2px rgba(0, 0, 0, .12);
 
-  background: url('../../assets/images/background_city.jpg') bottom center;
+  background: url('../../assets/images/background_city.jpg') 1% center;
   background-size: cover;
 
   h1, h2, span {
@@ -70,9 +70,10 @@
   }
 }
 
-.firstPart, .secondPart, .thirdPart {
+.firstPart, .secondPart, .thirdPart, .fourthPart {
   height: 100vh;
   max-height: 100vh;
+  background-color: rgba(20, 20, 20, 1);
 
   .titlePart {
     display: flex;
@@ -83,7 +84,7 @@
 
     h2 {
       font-family: 'Lato', sans-serif;
-      color: black;
+      color: white;
       width: fit-content;
       margin: 0;
     }
@@ -128,7 +129,7 @@
         border-radius: 50%;
         transform: scale(2, 5);
       }
-      
+
       &:hover {
         span {
           color: black;
@@ -156,14 +157,69 @@
   }
 }
 
-.firstPart {
-  background-color: rgba(255, 0, 0, 0.1);
+.btnInfos {
+  position: fixed;
+  left: 15px;
+  top: calc(50% - 16px / 2);
+  z-index: 2;
+
+  button {
+    font-size: 16px;
+    line-height: 16px;
+    background-color: transparent;
+    border: 0;
+    font-style: italic;
+    color: rgba(255, 255, 255, .6);
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+
+    &:focus, &:active {
+      text-decoration: none;
+      border: none;
+      outline: none;
+    }
+
+    &:before {
+      content: '';
+      height: 1px;
+      width: 5px;
+      position: absolute;
+      left: -5px;
+      top: 50%;
+      background-color: rgba(255, 255, 255, .6);
+    }
+  }
 }
 
-.secondPart {
-  background-color: rgba(0, 255, 0, 0.1);
+.infos {
+  display: none;
+  position: fixed;
+  left: calc(50% - 300px / 2);
+  top: calc(50% - 300px / 2);
+  height: 300px;
+  width: 300px;
+  background-color: rgba(20, 20, 20, 1);
+  z-index: 2;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .24), 0 0 2px rgba(0, 0, 0, .12);
+  border-radius: 2.5%;
 }
 
-.thirdPart {
-  background-color: rgba(0, 0, 255, 0.1);
+.infosActive {
+  display: flex !important;
+}
+
+.blur {
+  display: none;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  height: 100vh;
+  background-color: rgba(155, 155, 155, 0.9);
+  filter: blur(4px);
+  z-index: 1;
+}
+
+.blurActive {
+  display: flex;
 }
